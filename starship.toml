@@ -1,0 +1,147 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# ──────────────────────────────────────────────
+# PROMPT LAYOUT
+# Left-to-right order of segments; each separator glyph
+# blends the previous segment's color into the next one.
+# ──────────────────────────────────────────────
+palette = "powerline"
+
+format = """
+[░▒▓](os_bg)\
+$os\
+[](bg:dir_bg fg:os_bg)\
+$directory\
+[](fg:dir_bg bg:git_bg)\
+$git_branch\
+$git_status\
+[](fg:git_bg bg:lang_bg)\
+$nodejs\
+$bun\
+$rust\
+$golang\
+$php\
+[](fg:lang_bg bg:time_bg)\
+$time\
+[ ](fg:time_bg)\
+\n$character"""
+
+# ──────────────────────────────────────────────
+# COLOR PALETTE
+# Define each color once; change it here to update the whole prompt.
+# ──────────────────────────────────────────────
+[palettes.powerline]
+os_bg   =   "#ffb86b"   # OS segment background / prompt cap
+os_fg   =   "#2b1408"   # OS icon color
+dir_bg  =   "#e8743b"   # Directory segment background / bracket accent
+dir_fg  =   "#2b1408"   # Directory text color
+git_bg  =   "#5a2e1a"   # Git segment background
+lang_bg =   "#3b1f12"   # Language-version segment background
+time_bg =   "#281610"   # Clock segment background
+time_fg =   "#f2b27a"   # Clock text color
+
+# ──────────────────────────────────────────────
+# OPERATING SYSTEM
+# ──────────────────────────────────────────────
+[os]
+style = "bg:os_bg fg:os_fg"
+format = "[ $symbol ]($style)"
+disabled = false
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+# ──────────────────────────────────────────────
+# DIRECTORY
+# ──────────────────────────────────────────────
+[directory]
+style = "fg:dir_fg bg:dir_bg"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+# ──────────────────────────────────────────────
+# VERSION CONTROL (git / jj share the git segment colors)
+# ──────────────────────────────────────────────
+[git_branch]
+symbol = ""
+style = "bg:git_bg"
+format = '[[ $symbol $branch ](fg:dir_bg bg:git_bg)]($style)'
+
+[git_status]
+style = "bg:git_bg"
+format = '[[($all_status$ahead_behind )](fg:dir_bg bg:git_bg)]($style)'
+
+[jj_bookmark]
+symbol = ""
+style = "bg:git_bg"
+format = '[[ $symbol $bookmark(@$remote)$diverged( \\(+$overflow_count others\\)) ](fg:dir_bg bg:git_bg)]($style)'
+
+[jj_status]
+style = "bg:git_bg"
+format = '[[($all )](fg:dir_bg bg:git_bg)]($style)'
+
+# ──────────────────────────────────────────────
+# LANGUAGE / RUNTIME VERSIONS
+# All share the same style and format; only the symbol differs.
+# ──────────────────────────────────────────────
+[nodejs]
+symbol = ""
+style = "bg:lang_bg"
+format = '[[ $symbol ($version) ](fg:dir_bg bg:lang_bg)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:lang_bg"
+format = '[[ $symbol ($version) ](fg:dir_bg bg:lang_bg)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:lang_bg"
+format = '[[ $symbol ($version) ](fg:dir_bg bg:lang_bg)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:lang_bg"
+format = '[[ $symbol ($version) ](fg:dir_bg bg:lang_bg)]($style)'
+
+[php]
+symbol = ""
+style = "bg:lang_bg"
+format = '[[ $symbol ($version) ](fg:dir_bg bg:lang_bg)]($style)'
+
+# ──────────────────────────────────────────────
+# CLOCK
+# ──────────────────────────────────────────────
+[time]
+disabled = false
+time_format = "%I:%M %p"  # 12-hour Hour:Minute with AM/PM
+style = "bg:time_bg"
+format = '[[  $time ](fg:time_fg bg:time_bg)]($style)'
