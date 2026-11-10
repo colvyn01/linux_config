@@ -1,5 +1,5 @@
 configuration {
-    modes: "drun,window";
+    modes: "drun";
     show-icons: true;
     font: "GeistMono Nerd Font 12";
 }
