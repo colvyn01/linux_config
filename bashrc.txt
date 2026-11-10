@@ -28,6 +28,7 @@ theme() {
   sed -i "s|^include themes/.*|include themes/$t.conf|" ~/.config/kitty/kitty.conf
   sed -i "s|^palette = .*|palette = \"$t\"|" ~/.config/starship.toml
   ln -sf ~/.config/shell-themes/$t.sh ~/.config/shell-themes/current.sh
+  ln -sf ~/.config/rofi/themes/$t.rasi ~/.config/rofi/colors.rasi
   source ~/.config/shell-themes/current.sh
   pkill -USR1 -x kitty   # reload kitty config
 }

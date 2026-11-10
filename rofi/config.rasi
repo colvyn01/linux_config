@@ -1,0 +1,6 @@
+configuration {
+    modes: "drun,window";
+    show-icons: true;
+}
+@import "colors.rasi"
+@import "layout.rasi"
