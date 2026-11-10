@@ -1,5 +1,5 @@
 * {
-    bg: #040b07;  fg: #d0ffe0;  dim: #3d6b52;
+    bg: #040b07B3;  fg: #d0ffe0;  dim: #3d6b52;
     accent: #00ff9c;  accent-fg: #02100a;
-    border: #00e5ff;  surface: #0c1f16;
+    border: #00e5ff;  surface: #0c1f16B3;
 }
