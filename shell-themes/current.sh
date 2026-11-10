@@ -1,0 +1,1 @@
+/home/colvyn/.config/shell-themes/amber.sh

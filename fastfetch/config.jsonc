@@ -1,0 +1,87 @@
+{
+  "$schema": "https://raw.githubusercontent.com/fastfetch-cli/fastfetch/2.66.0/doc/json_schema.json",
+
+  // ------------------------------------------------------------------
+  // Logo
+  // Colors are the logo's numbered color slots (matches starship palette).
+  // ------------------------------------------------------------------
+  "logo": {
+    "type": "auto",
+    "padding": { "left": 2, "right": 2 },
+    "color": {
+      "1": "#e8743b",  // burnt orange (dir_bg)
+      "2": "#ffb86b",  // light amber (os_bg)
+      "3": "#f0a030",  // gold
+      "4": "#f2b27a"   // soft peach (time_fg)
+    }
+  },
+
+  // ------------------------------------------------------------------
+  // Display
+  // ------------------------------------------------------------------
+  "display": {
+    "disableLinewrap": true,
+    "color": {
+      "title": "#ffb86b",      // user@host line: light amber
+      "keys": "#e8743b",       // labels (OS, Kernel, ...): burnt orange
+      "separator": "#8a6a55",  // divider line and ':' marks: muted brown
+      "output": "#f2d9c0"      // values: warm cream (matches kitty foreground)
+    },
+    "size": {
+      "maxPrefix": "MB",
+      "ndigits": 0,
+      "spaceBeforeUnit": "never"
+    },
+    "freq": {
+      "ndigits": 3,
+      "spaceBeforeUnit": "never"
+    }
+  },
+
+  // ------------------------------------------------------------------
+  // Modules
+  // ------------------------------------------------------------------
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    {
+      "type": "kernel",
+      "format": "{release}"
+    },
+    "uptime",
+    {
+      "type": "packages",
+      "combined": true
+    },
+    "shell",
+    {
+      "type": "display",
+      "compactType": "original",
+      "key": "Resolution"
+    },
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "terminal",
+    {
+      "type": "terminalfont",
+      "format": "{/name}{-}{/}{name}{?size} {size}{?}"
+    },
+    "cpu",
+    {
+      "type": "gpu",
+      "key": "GPU",
+      "format": "{name}"
+    },
+    {
+      "type": "memory",
+      "format": "{used} / {total}"
+    },
+    "break",
+    "colors"
+  ]
+}

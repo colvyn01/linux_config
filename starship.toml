@@ -5,7 +5,7 @@
 # Left-to-right order of segments; each separator glyph
 # blends the previous segment's color into the next one.
 # ──────────────────────────────────────────────
-palette = "powerline"
+palette = "amber"
 
 format = """
 [░▒▓](os_bg)\
@@ -30,15 +30,35 @@ $time\
 # COLOR PALETTE
 # Define each color once; change it here to update the whole prompt.
 # ──────────────────────────────────────────────
-[palettes.powerline]
-os_bg   =   "#ffb86b"   # OS segment background / prompt cap
-os_fg   =   "#2b1408"   # OS icon color
-dir_bg  =   "#e8743b"   # Directory segment background / bracket accent
-dir_fg  =   "#2b1408"   # Directory text color
-git_bg  =   "#5a2e1a"   # Git segment background
-lang_bg =   "#3b1f12"   # Language-version segment background
-time_bg =   "#281610"   # Clock segment background
-time_fg =   "#f2b27a"   # Clock text color
+[palettes.amber]
+os_bg   = "#ffb86b"
+os_fg   = "#2b1408"
+dir_bg  = "#e8743b"
+dir_fg  = "#2b1408"
+git_bg  = "#5a2e1a"
+lang_bg = "#3b1f12"
+time_bg = "#281610"
+time_fg = "#f2b27a"
+
+[palettes.hacker]
+os_bg   = "#00ff9c"
+os_fg   = "#02100a"
+dir_bg  = "#00e5ff"
+dir_fg  = "#02100a"
+git_bg  = "#0f2a20"
+lang_bg = "#0a1d16"
+time_bg = "#07140f"
+time_fg = "#5cffb8"
+
+[palettes.synthwave]
+os_bg   = "#ff2a6d"
+os_fg   = "#05010d"
+dir_bg  = "#05d9e8"
+dir_fg  = "#05010d"
+git_bg  = "#731c9e"
+lang_bg = "#3a0ca3"
+time_bg = "#01012b"
+time_fg = "#05d9e8"
 
 # ──────────────────────────────────────────────
 # OPERATING SYSTEM
