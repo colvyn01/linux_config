@@ -29,6 +29,7 @@ theme() {
   sed -i "s|^palette = .*|palette = \"$t\"|" ~/.config/starship.toml
   ln -sf ~/.config/shell-themes/$t.sh ~/.config/shell-themes/current.sh
   ln -sf ~/.config/rofi/themes/$t.rasi ~/.config/rofi/colors.rasi
+  cp ~/.config/quickshell/themes/$t.qml ~/.config/quickshell/Theme.qml
   source ~/.config/shell-themes/current.sh
   pkill -USR1 -x kitty   # reload kitty config
 }
@@ -38,3 +39,11 @@ eval "$(starship init bash)"
 # MUST BE AT THE END FOR SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+dotsync() {
+  cd ~/Downloads/linux_config || return
+  cp ~/.bashrc .bashrc
+  cp -a ~/.config/rofi/. rofi/
+  cp -a ~/.config/quickshell/. quickshell/
+  git status --short
+}
