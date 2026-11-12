@@ -40,8 +40,6 @@ dotsync() {
   cd ~/Downloads/linux_config || return
   cp ~/.bashrc .bashrc
   cp -a ~/.config/rofi/. rofi/
-  cp -a ~/.config/quickshell/. quickshell/
-  mkdir -p autostart && cp ~/.config/autostart/quickshell.desktop autostart/
   git status --short
 }
 
