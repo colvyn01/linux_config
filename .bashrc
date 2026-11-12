@@ -36,10 +36,6 @@ theme() {
 
 eval "$(starship init bash)"
 
-# MUST BE AT THE END FOR SDKMAN
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 dotsync() {
   cd ~/Downloads/linux_config || return
   cp ~/.bashrc .bashrc
@@ -47,3 +43,7 @@ dotsync() {
   cp -a ~/.config/quickshell/. quickshell/
   git status --short
 }
+
+# MUST BE AT THE END FOR SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
