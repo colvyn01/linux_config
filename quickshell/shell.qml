@@ -20,9 +20,9 @@ PanelWindow {
         }
         Text {
             anchors { left: parent.left; leftMargin: 14; verticalCenter: parent.verticalCenter }
-            text: "ARCH"
+            text: "󰣇"
             color: t.accent
-            font { family: "GeistMono Nerd Font"; pixelSize: 14; bold: true }
+            font { family: "GeistMono Nerd Font"; pixelSize: 20 }
         }
         Text {
             anchors.centerIn: parent
