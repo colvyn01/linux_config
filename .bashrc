@@ -39,7 +39,21 @@ dotsync() {
   cd ~/Downloads/linux_config || return
   cp ~/.bashrc .bashrc
   cp -a ~/.config/rofi/. rofi/
+  cp -a ~/.config/kitty/. kitty/
+  cp -a ~/.config/shell-themes/. shell-themes/
+  cp -a ~/.config/fastfetch/. fastfetch/
+  cp ~/.config/starship.toml starship.toml
   git status --short
+}
+
+# Open Yazi and change the shell to its final directory
+function y() {
+    local tmp cwd
+    tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+    command rm -f -- "$tmp"
 }
 
 # MUST BE AT THE END FOR SDKMAN
