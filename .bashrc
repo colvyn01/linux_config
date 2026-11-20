@@ -8,7 +8,6 @@
 [[ -r /usr/share/blesh/ble.sh ]] && source /usr/share/blesh/ble.sh
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$HOME/.spicetify"
 export EDITOR=nvim
 export VISUAL=nvim
 
