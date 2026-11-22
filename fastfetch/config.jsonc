@@ -1,87 +1,164 @@
 {
-  "$schema": "https://raw.githubusercontent.com/fastfetch-cli/fastfetch/2.66.0/doc/json_schema.json",
+    "logo": {
+        "type": "builtin",
+        "source": "arch",
+        "height": 15,
+        "width": 30,
+        "padding": {
+            "top": 2,
+            "left": 2
+        },
+        "color": {
+            "1": "#F0A030",
+            "2": "#FFB86B"
+        }
+    },
 
-  // ------------------------------------------------------------------
-  // Logo
-  // Colors are the logo's numbered color slots (matches starship palette).
-  // ------------------------------------------------------------------
-  "logo": {
-    "type": "auto",
-    "padding": { "left": 2, "right": 2 },
-    "color": {
-      "1": "#e8743b",  // burnt orange (dir_bg)
-      "2": "#ffb86b",  // light amber (os_bg)
-      "3": "#f0a030",  // gold
-      "4": "#f2b27a"   // soft peach (time_fg)
-    }
-  },
+    "display": {
+        "color": {
+            "keys": "#FFB86B",
+            "separator": "#9A7A62",
+            "output": "#F2D9C0"
+        }
+    },
 
-  // ------------------------------------------------------------------
-  // Display
-  // ------------------------------------------------------------------
-  "display": {
-    "disableLinewrap": true,
-    "color": {
-      "title": "#ffb86b",      // user@host line: light amber
-      "keys": "#e8743b",       // labels (OS, Kernel, ...): burnt orange
-      "separator": "#8a6a55",  // divider line and ':' marks: muted brown
-      "output": "#f2d9c0"      // values: warm cream (matches kitty foreground)
-    },
-    "size": {
-      "maxPrefix": "MB",
-      "ndigits": 0,
-      "spaceBeforeUnit": "never"
-    },
-    "freq": {
-      "ndigits": 3,
-      "spaceBeforeUnit": "never"
-    }
-  },
+    "modules": [
+        "break",
 
-  // ------------------------------------------------------------------
-  // Modules
-  // ------------------------------------------------------------------
-  "modules": [
-    "title",
-    "separator",
-    "os",
-    "host",
-    {
-      "type": "kernel",
-      "format": "{release}"
-    },
-    "uptime",
-    {
-      "type": "packages",
-      "combined": true
-    },
-    "shell",
-    {
-      "type": "display",
-      "compactType": "original",
-      "key": "Resolution"
-    },
-    "de",
-    "wm",
-    "wmtheme",
-    "theme",
-    "icons",
-    "terminal",
-    {
-      "type": "terminalfont",
-      "format": "{/name}{-}{/}{name}{?size} {size}{?}"
-    },
-    "cpu",
-    {
-      "type": "gpu",
-      "key": "GPU",
-      "format": "{name}"
-    },
-    {
-      "type": "memory",
-      "format": "{used} / {total}"
-    },
-    "break",
-    "colors"
-  ]
+        {
+            "type": "custom",
+            "format": "  \u001b[1;38;2;255;184;107mSYSTEM \u001b[0;38;2;154;122;98m───────────────────────────────────\u001b[0m"
+        },
+        {
+            "type": "host",
+            "key": "  Machine ",
+            "keyColor": "#FFB86B"
+        },
+        {
+            "type": "cpu",
+            "key": "  CPU     ",
+            "keyColor": "#FFB86B",
+            "format": "Intel Core {name~-8}"
+        },
+        {
+            "type": "cpu",
+            "key": "  Cores   ",
+            "keyColor": "#FFB86B",
+            "format": "{cores-physical} cores / {cores-logical} threads"
+        },
+        {
+            "type": "gpu",
+            "key": "  GPU     ",
+            "keyColor": "#FFB86B",
+            "format": "{name:33}"
+        },
+        {
+            "type": "memory",
+            "key": "  Memory  ",
+            "keyColor": "#FFB86B"
+        },
+        {
+            "type": "disk",
+            "key": "  Storage ",
+            "keyColor": "#FFB86B",
+            "format": "{size-used} / {size-total}"
+        },
+
+        "break",
+
+        {
+            "type": "custom",
+            "format": "  \u001b[1;38;2;255;122;80mSOFTWARE \u001b[0;38;2;154;122;98m─────────────────────────────────\u001b[0m"
+        },
+        {
+            "type": "os",
+            "key": "  OS      ",
+            "keyColor": "#FF7A50"
+        },
+        {
+            "type": "kernel",
+            "key": "  Kernel  ",
+            "keyColor": "#FF7A50"
+        },
+        {
+            "type": "bios",
+            "key": "  BIOS    ",
+            "keyColor": "#FF7A50"
+        },
+        {
+            "type": "packages",
+            "key": "  Packages",
+            "keyColor": "#FF7A50"
+        },
+        {
+            "type": "shell",
+            "key": "  Shell   ",
+            "keyColor": "#FF7A50"
+        },
+
+        "break",
+
+        {
+            "type": "custom",
+            "format": "  \u001b[1;38;2;242;207;165mDESKTOP \u001b[0;38;2;154;122;98m──────────────────────────────────\u001b[0m"
+        },
+        {
+            "type": "de",
+            "key": "  Desktop ",
+            "keyColor": "#F2CFA5"
+        },
+        {
+            "type": "lm",
+            "key": "  Login   ",
+            "keyColor": "#F2CFA5"
+        },
+        {
+            "type": "wm",
+            "key": "  WM      ",
+            "keyColor": "#F2CFA5"
+        },
+        {
+            "type": "wmtheme",
+            "key": "  Theme   ",
+            "keyColor": "#F2CFA5"
+        },
+        {
+            "type": "terminal",
+            "key": "  Terminal",
+            "keyColor": "#F2CFA5"
+        },
+
+        "break",
+
+        {
+            "type": "custom",
+            "format": "  \u001b[1;38;2;224;154;184mSESSION \u001b[0;38;2;154;122;98m──────────────────────────────────\u001b[0m"
+        },
+        {
+            "type": "command",
+            "key": "  Age     ",
+            "keyColor": "#E09AB8",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo \"$days_difference days\""
+        },
+        {
+            "type": "uptime",
+            "key": "  Uptime  ",
+            "keyColor": "#E09AB8"
+        },
+        {
+            "type": "datetime",
+            "key": "  Date    ",
+            "keyColor": "#E09AB8"
+        },
+
+        "break",
+
+        {
+            "type": "colors",
+            "paddingLeft": 2,
+            "symbol": "circle"
+        },
+
+        "break"
+    ]
 }
