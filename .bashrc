@@ -17,6 +17,8 @@ alias ll='ls -lah --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias tmatrix='tmatrix --background=default'
+alias vim='nvim'
+alias neofetch='fastfetch'
 
 [[ -r ~/.config/shell-themes/current.sh ]] || ln -sf ~/.config/shell-themes/amber.sh ~/.config/shell-themes/current.sh
 source ~/.config/shell-themes/current.sh
@@ -42,6 +44,7 @@ dotsync() {
   cp -a ~/.config/kitty/. kitty/
   cp -a ~/.config/shell-themes/. shell-themes/
   cp -a ~/.config/fastfetch/. fastfetch/
+  cp -a ~/.config/nvim/. nvim
   cp ~/.config/starship.toml starship.toml
   git status --short
 }
@@ -54,6 +57,10 @@ function y() {
     IFS= read -r -d '' cwd < "$tmp"
     [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
     command rm -f -- "$tmp"
+}
+
+function update(){
+    eval "$(sudo pacman -Syu)"
 }
 
 # MUST BE AT THE END FOR SDKMAN
