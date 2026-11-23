@@ -180,6 +180,20 @@ require("lazy").setup({
     opts = {},
   },
 
+  -- UI: Show hex colors (#rrggbb) in their real color
+  {
+    "nvim-mini/mini.hipatterns",
+    version = "*",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      local hipatterns = require("mini.hipatterns")
+      hipatterns.setup({
+        highlighters = {
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      })
+    end,
+  },
   -- UI: Statusline
   {
     "nvim-lualine/lualine.nvim",
