@@ -1,0 +1,17 @@
+return {
+    os_bg   = "#ffb86b",
+    os_fg   = "#2b1408",
+    dir_bg  = "#e8743b",
+    git_bg  = "#5a2e1a",
+    lang_bg = "#3b1f12",
+    time_bg = "#281610",
+    time_fg = "#f2b27a",
+    text    = "#f2d9c0",
+    muted   = "#8a6a55",
+    red     = "#e0523a",
+    gold    = "#f0a030",
+    honey   = "#f0c27a",
+    copper  = "#c98a5e",
+    sand    = "#d9b38c",
+    rose    = "#e09ab8",
+}
